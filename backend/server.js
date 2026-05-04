@@ -11,7 +11,13 @@ const PORT = process.env.PORT || 3000;
 const boardRoutes = require("./src/routes/boardRoutes");
 
 //Middleware de base
-app.use(cors());
+//app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // Routes
