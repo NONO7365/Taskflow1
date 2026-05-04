@@ -14,5 +14,6 @@ router.post("/:id/columns", boardController.createColumn);
 router.post("/columns/:id/cards", boardController.createCard);
 router.put("/cards/:id", boardController.updateCard);
 router.delete("/cards/:id", boardController.deleteCard);
+router.patch("/cards/:id/move", boardController.moveCard);
 
 module.exports = router;

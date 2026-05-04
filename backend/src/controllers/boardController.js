@@ -106,6 +106,17 @@ const boardController = {
     }
   },
 
+  // PATCH /api/cards/:id/move
+  async moveCard(req, res) {
+    try {
+      const { columnId, position } = req.body;
+      const card = await CardModel.move(req.params.id, { columnId, position });
+      res.json(card);
+    } catch (error) {
+      res.status(500).json({ error: "Erreur serveur" });
+    }
+  },
+
   // DELETE /api/cards/:id
   async deleteCard(req, res) {
     try {

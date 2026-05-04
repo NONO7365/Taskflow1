@@ -21,6 +21,17 @@ const CardModel = {
     return parseInt(result.rows[0].count);
   },
 
+  // Déplacer une carte (changer de colonne et/ou position)
+  async move(id, { columnId, position }) {
+    const result = await db.query(
+      `UPDATE cards SET column_id = $1, position = $2
+     WHERE id = $3
+     RETURNING *`,
+      [columnId, position, id],
+    );
+    return result.rows[0];
+  },
+
   // Modifier une carte
   async update(id, { title, description }) {
     const result = await db.query(
