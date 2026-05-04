@@ -8,13 +8,15 @@ const authRoutes = require("./src/routes/authRoutes");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const boardRoutes = require("./src/routes/boardRoutes");
+
 //Middleware de base
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
-
+app.use("/api/boards", boardRoutes);
 //Route de test
 app.get("/health", (req, res) => {
   res.json({ status: "ok", message: "Le serveur fonctionne correctement" });
