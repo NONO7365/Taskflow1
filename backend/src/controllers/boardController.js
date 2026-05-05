@@ -69,6 +69,15 @@ const boardController = {
     }
   },
 
+  async deleteColumn(req, res) {
+    try {
+      await ColumnModel.delete(req.params.id);
+      res.json({ message: "Colonne supprimée" });
+    } catch (error) {
+      res.status(500).json({ error: "Erreur serveur" });
+    }
+  },
+
   // POST /api/columns/:id/cards
   async createCard(req, res) {
     try {

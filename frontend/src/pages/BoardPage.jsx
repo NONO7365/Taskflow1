@@ -58,14 +58,14 @@ export default function BoardPage() {
     }
   };
 
-  const deleteColumn = async (columnId) => {
-    try {
-      await api.delete(`/boards/${columnId}`);
-      fetchBoard();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+ const deleteColumn = async (columnId) => {
+   try {
+     await api.delete(`/boards/columns/${columnId}`);
+     fetchBoard();
+   } catch (err) {
+     console.error(err);
+   }
+ };
 
   const updateCard = async (cardId, title, description) => {
     try {
