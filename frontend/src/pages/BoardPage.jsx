@@ -198,6 +198,7 @@ export default function BoardPage() {
                                       description: e.target.value,
                                     })
                                   }
+                                  spellCheck={false}
                                   placeholder="Description..."
                                   className="w-full text-xs border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
                                   rows={2}
